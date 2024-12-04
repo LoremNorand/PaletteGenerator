@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaletteGenerator", "PaletteGenerator\PaletteGenerator.csproj", "{B342E797-861A-4D1B-9C90-AF205D01BAD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaletteGeneratorTest", "PaletteGeneratorTest\PaletteGeneratorTest.csproj", "{06BF454C-74C1-4A7C-AE0E-1CE025E2DD4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B342E797-861A-4D1B-9C90-AF205D01BAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B342E797-861A-4D1B-9C90-AF205D01BAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B342E797-861A-4D1B-9C90-AF205D01BAD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06BF454C-74C1-4A7C-AE0E-1CE025E2DD4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06BF454C-74C1-4A7C-AE0E-1CE025E2DD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06BF454C-74C1-4A7C-AE0E-1CE025E2DD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06BF454C-74C1-4A7C-AE0E-1CE025E2DD4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

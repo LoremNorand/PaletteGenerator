@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Security.AccessControl;
+using System.Runtime.InteropServices;
 
 namespace PaletteGenerator.Core.Utility
 {
-    internal static class RangeManager
+    public static class RangeManager
     {
         public static int Clamp(int min, int max, int value)
         {
@@ -18,10 +18,17 @@ namespace PaletteGenerator.Core.Utility
         public static int Cycle(int min, int max, int value)
         {
             if (value < min)
-                return max - value;
+                return max - (min - value);
+
             if (value > max)
-                return max - value;
+                return min + (value - max);
+
             return value;
+        }
+
+        public static bool InRange(double min, double max, double value)
+        {
+            return ((value >= min) && (value <= max));
         }
     }
 }

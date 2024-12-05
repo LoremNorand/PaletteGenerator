@@ -1,11 +1,4 @@
-﻿using PaletteGenerator.Core.Utility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaletteGenerator.Core
+﻿namespace PaletteGenerator.Core
 {
     internal class FullColor
     {
@@ -42,7 +35,7 @@ namespace PaletteGenerator.Core
             get => (H: _hue, S: _saturation, B: _brightness);
             set
             {
-                _hue = Utility.RangeManager.Clamp(0, 100, value.H);
+                _hue = Utility.RangeManager.Clamp(0, 360, value.H);
                 _saturation = Utility.RangeManager.Clamp(0, 100, value.S);
                 _brightness = Utility.RangeManager.Clamp(0, 100, value.B);
 
@@ -55,9 +48,16 @@ namespace PaletteGenerator.Core
             }
         }
 
+        // AVNS_uUSKNpuQxeWmHc1vmmt
+
         public double Luminance
         {
             get => _visualLuminance;
+        }
+
+        public string HEX
+        {
+            get => $"#{_red:X2}{_green:X2}{_blue:X2}";
         }
     }
 }

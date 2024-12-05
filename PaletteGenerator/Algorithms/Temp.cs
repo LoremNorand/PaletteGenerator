@@ -1,18 +1,31 @@
 ﻿using PaletteGenerator.Core;
+using PaletteGenerator.Core.Utility;
 using System;
 using System.Drawing;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PaletteGenerator.Algorithms
 {
     internal class Temp
     {
-        public static double darkL;
-        public static double midL;
+        private static readonly Random Random = new Random();
 
+        // Константы для диапазонов
+        private const double LowLuminanceMin = 0.0001;
+        private const double LowLuminanceMax = 0.02;
+
+        private const double MidContrastMin = 4.5;
+        private const double MidContrastMax = 5.0;
+
+        private const double TopContrastMin = 4.5;
+        private const double TopContrastMax = 5.0;
+
+        private const int MaxAttempts = 32;
+
+        public static FullColor low;
+        public static FullColor mid;
+
+        // Устаревший метод, без изменений
         public static void Method()
         {
             Bitmap bitmap = new Bitmap(360, 100);
@@ -31,61 +44,69 @@ namespace PaletteGenerator.Algorithms
 
         public static void TestRandom(FullColor low, FullColor mid, FullColor top)
         {
-            Low(low);
-            Mid(mid);
-            Top(top);
+            GenerateLowColor(low);
+            GenerateMidColor(mid);
+            GenerateTopColor(top);
         }
 
-        private static void Low(FullColor color)
+        // Генерация Low
+        public static void GenerateLowColor(FullColor color)
         {
-            color.HSB = (0, 100, 100);
-            Random random = new Random();
-
-            int hue, saturation, brightness;
-
-            while (!Core.Utility.RangeManager.InRange(0, 0.1, color.Luminance))
+            color.RGB = (255, 255, 255);
+            while (!Core.Utility.RangeManager.InRange(LowLuminanceMin, LowLuminanceMax, color.Luminance))
             {
-                hue = random.Next(180, 330);
-                saturation = random.Next(70, 101);
-                brightness = random.Next(0, 45);
-
-                color.HSB = (hue, saturation, brightness);
+                color.HSB = GenerateRandomHSB(0, 360, 70, 100, 0, 20);
             }
-            darkL = color.Luminance;
+            low = color;
         }
 
-        private static void Mid(FullColor color)
+        // 180 330
+
+        // Генерация Mid
+        public static void GenerateMidColor(FullColor color)
         {
-            Random random = new Random();
-
-            int hue, saturation, brightness;
-
-            while (color.Luminance < (darkL + 0.2))
+            color.RGB = (0, 0, 0);
+            int attempts = 0;
+            while (!RangeManager.InRange(MidContrastMin, MidContrastMax, VisualLuminance.Contrast(color, low)))
             {
-                hue = random.Next(-10, 200);
-                saturation = random.Next(20, 80);
-                brightness = random.Next(30, 60);
+                if (++attempts > MaxAttempts)
+                {
+                    GenerateLowColor(low);
+                }
 
-                color.HSB = (hue, saturation, brightness);
+                color.HSB = GenerateRandomHSB(0, 360, 30, 80, 30, 90);
             }
-            midL = color.Luminance;
+            mid = color;
         }
 
-        private static void Top(FullColor color)
+        // -10 200
+
+        // Генерация Top
+        public static void GenerateTopColor(FullColor color)
         {
-            Random random = new Random();
-
-            int hue, saturation, brightness;
-
-            while (Core.Utility.VisualLuminance.Contrast())
+            color.RGB = (128, 128, 128);
+            int attempts = 0;
+            while (!RangeManager.InRange(TopContrastMin, TopContrastMax, VisualLuminance.Contrast(color, mid)))
             {
-                hue = random.Next(20, 180);
-                saturation = random.Next(0, 50);
-                brightness = random.Next(60, 101);
+                if (++attempts > MaxAttempts)
+                {
+                    GenerateMidColor(mid);
+                }
 
-                color.HSB = (hue, saturation, brightness);
+                color.HSB = GenerateRandomHSB(0, 360, 0, 30, 95, 100);
             }
         }
-        
+
+        // 40 180
+
+        // Универсальный метод для генерации HSB
+        private static (int, int, int) GenerateRandomHSB(int hueMin, int hueMax, int saturationMin, int saturationMax, int brightnessMin, int brightnessMax)
+        {
+            int hue = Random.Next(hueMin, hueMax + 1);
+            int saturation = Random.Next(saturationMin, saturationMax + 1);
+            int brightness = Random.Next(brightnessMin, brightnessMax + 1);
+
+            return (hue, saturation, brightness);
+        }
     }
 }

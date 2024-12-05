@@ -29,7 +29,9 @@ namespace PaletteGenerator
             FullColor mid = new FullColor();
             FullColor top = new FullColor();
 
-            Algorithms.Temp.TestRandom(low, mid, top);
+            Algorithms.Temp.GenerateLowColor(low);
+            Algorithms.Temp.GenerateMidColor(mid);
+            Algorithms.Temp.GenerateTopColor(top);
 
             panel1.BackColor = Color.FromArgb(low.RGB.R, low.RGB.G, low.RGB.B);
             panel2.BackColor = Color.FromArgb(mid.RGB.R, mid.RGB.G, mid.RGB.B);
@@ -38,6 +40,10 @@ namespace PaletteGenerator
             label1.Text = Core.Utility.VisualLuminance.Contrast(mid, low).ToString("F2");
             label2.Text = Core.Utility.VisualLuminance.Contrast(top, low).ToString("F2");
             label3.Text = Core.Utility.VisualLuminance.Contrast(top, mid).ToString("F2");
+
+            label4.Text = low.HEX;
+            label5.Text = mid.HEX;
+            label6.Text = top.HEX;
         }
     }
 }

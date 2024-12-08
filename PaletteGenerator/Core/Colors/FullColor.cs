@@ -54,7 +54,7 @@ namespace PaletteGenerator.Core.Colors
 
         public double Luminance
         {
-            get => _visualLuminance;
+            get => _visualLuminance; 
         }
 
         public string HEX

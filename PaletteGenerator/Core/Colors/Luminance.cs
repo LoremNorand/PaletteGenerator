@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaletteGenerator.Core.Utility
+namespace PaletteGenerator.Core.Colors
 {
-    internal static class VisualLuminance
+    internal static class Luminance
     {
         public static double FromRGB((int R, int G, int B) rgb)
         {
@@ -19,8 +19,17 @@ namespace PaletteGenerator.Core.Utility
 
         public static double FromHSB((int H, int S, int B) hsb)
         {
-            (int R, int G, int B) rgb = ColorSchemeConverter.HsbToRgb(hsb);
+            (int R, int G, int B) rgb = SchemeConverter.HsbToRgb(hsb);
             return FromRGB(rgb);
+        }
+
+        public static double FromFullColor(FullColor color)
+        {
+            double r = LinearizeColor(color.RGB.R / 255.0);
+            double g = LinearizeColor(color.RGB.G / 255.0);
+            double b = LinearizeColor(color.RGB.B / 255.0);
+
+            return 0.2126 * r + 0.7152 * g + 0.0722 * b;
         }
 
         public static double Delta(FullColor firstColor, FullColor secondColor)

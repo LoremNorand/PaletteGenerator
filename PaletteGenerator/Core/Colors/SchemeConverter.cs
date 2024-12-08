@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace PaletteGenerator.Core.Utility
+namespace PaletteGenerator.Core.Colors
 {
-    internal static class ColorSchemeConverter
+    internal static class SchemeConverter
     {
         public static (int H, int S, int B) RgbToHsb((int R, int G, int B) rgb)
         {
@@ -19,28 +19,28 @@ namespace PaletteGenerator.Core.Utility
             double saturation;
             double brightness = maxValue * 100;
 
-            if (Math.Abs(maxValue - 0) < 0.00001 || Math.Abs(delta - 0) < 0.00001)
+            if(Math.Abs(maxValue - 0) < 0.00001 || Math.Abs(delta - 0) < 0.00001)
             {
                 hue = 0;
                 saturation = 0;
             }
             else
             {
-                if (Math.Abs(minValue - 0) < 0.00001)
+                if(Math.Abs(minValue - 0) < 0.00001)
                     saturation = 100;
                 else
                     saturation = delta / maxValue * 100;
 
-                if (Math.Abs(r - maxValue) < 0.00001)
+                if(Math.Abs(r - maxValue) < 0.00001)
                     hue = (g - b) / delta;
-                else if (Math.Abs(g - maxValue) < 0.00001)
+                else if(Math.Abs(g - maxValue) < 0.00001)
                     hue = 2 + (b - r) / delta;
-                else if (Math.Abs(b - maxValue) < 0.00001)
+                else if(Math.Abs(b - maxValue) < 0.00001)
                     hue = 4 + (r - g) / delta;
             }
 
             hue *= 60;
-            if (hue < 0)
+            if(hue < 0)
             {
                 hue += 360;
             }
@@ -56,7 +56,7 @@ namespace PaletteGenerator.Core.Utility
             double s = (double)hsb.S / 100;
             double b = (double)hsb.B/ 100;
 
-            if (Math.Abs(s - 0) < 0.00001)
+            if(Math.Abs(s - 0) < 0.00001)
             {
                 red = b;
                 green = b;
@@ -76,7 +76,7 @@ namespace PaletteGenerator.Core.Utility
 
                 // Assign the fractional colors to r, g, and b
                 // based on the sector the angle is in.
-                switch (sectorNumber)
+                switch(sectorNumber)
                 {
                     case 0:
                         red = b;

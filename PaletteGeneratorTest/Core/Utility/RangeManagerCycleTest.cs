@@ -13,7 +13,7 @@ namespace PaletteGeneratorTest.Core.Utility
             int value = 18;
             int expected = 28;
 
-            Assert.AreEqual(expected, RangeManager.Cycle(min, max, value));
+            Assert.AreEqual(expected, PaletteGenerator.Core.Utility.Range.Cycle(min, max, value));
         }
 
         [TestMethod]
@@ -24,7 +24,7 @@ namespace PaletteGeneratorTest.Core.Utility
             int value = -21;
             int expected = 29;
 
-            Assert.AreEqual(expected, RangeManager.Cycle(min, max, value));
+            Assert.AreEqual(expected, PaletteGenerator.Core.Utility.Range.Cycle(min, max, value));
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace PaletteGeneratorTest.Core.Utility
             int value = 50;
             int expected = 20;
 
-            Assert.AreEqual(expected, RangeManager.Cycle(min, max, value));
+            Assert.AreEqual(expected, PaletteGenerator.Core.Utility.Range.Cycle(min, max, value));
         }
 
         [TestMethod]
@@ -46,7 +46,7 @@ namespace PaletteGeneratorTest.Core.Utility
             int value = -8;
             int expected = -98;
 
-            Assert.AreEqual(expected, RangeManager.Cycle(min, max, value));
+            Assert.AreEqual(expected, PaletteGenerator.Core.Utility.Range.Cycle(min, max, value));
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@ namespace PaletteGeneratorTest.Core.Utility
             int value = -10;
             int expected = 350;
 
-            Assert.AreEqual(expected, RangeManager.Cycle(min, max, value));
+            Assert.AreEqual(expected, PaletteGenerator.Core.Utility.Range.Cycle(min, max, value));
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@ namespace PaletteGeneratorTest.Core.Utility
             int value = 370;
             int expected = 10;
 
-            Assert.AreEqual(expected, RangeManager.Cycle(min, max, value));
+            Assert.AreEqual(expected, PaletteGenerator.Core.Utility.Range.Cycle(min, max, value));
         }
     }
 }

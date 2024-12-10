@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.GenerationTab = new System.Windows.Forms.TabPage();
             this.TriadPaletteView3 = new System.Windows.Forms.Panel();
@@ -48,14 +49,27 @@
             this.TriadPalettePanelDark = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.generateButton = new System.Windows.Forms.Button();
+            this.directionInput = new System.Windows.Forms.ComboBox();
+            this.directionLabel = new System.Windows.Forms.Label();
+            this.numShadesInput = new System.Windows.Forms.NumericUpDown();
+            this.numShadesLabel = new System.Windows.Forms.Label();
+            this.hexDisplayLabel = new System.Windows.Forms.Label();
+            this.colorPreviewPanel = new System.Windows.Forms.Panel();
+            this.hexInput = new System.Windows.Forms.TextBox();
+            this.hexLabel = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.tooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.panelContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.MainTabControl.SuspendLayout();
             this.GenerationTab.SuspendLayout();
             this.TriadPaletteView3.SuspendLayout();
             this.TriadPaletteView2.SuspendLayout();
             this.TriadPaletteView1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numShadesInput)).BeginInit();
             this.HeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -283,19 +297,124 @@
             this.label1.Location = new System.Drawing.Point(35, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(32, 16, 16, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 27);
+            this.label1.Size = new System.Drawing.Size(418, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Триадная контрастная палитра";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panelContainer);
+            this.tabPage2.Controls.Add(this.generateButton);
+            this.tabPage2.Controls.Add(this.directionInput);
+            this.tabPage2.Controls.Add(this.directionLabel);
+            this.tabPage2.Controls.Add(this.numShadesInput);
+            this.tabPage2.Controls.Add(this.numShadesLabel);
+            this.tabPage2.Controls.Add(this.hexDisplayLabel);
+            this.tabPage2.Controls.Add(this.colorPreviewPanel);
+            this.tabPage2.Controls.Add(this.hexInput);
+            this.tabPage2.Controls.Add(this.hexLabel);
             this.tabPage2.Location = new System.Drawing.Point(4, 36);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1080, 504);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Генератор оттенков";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // generateButton
+            // 
+            this.generateButton.AutoSize = true;
+            this.generateButton.Location = new System.Drawing.Point(10, 71);
+            this.generateButton.Name = "generateButton";
+            this.generateButton.Size = new System.Drawing.Size(159, 34);
+            this.generateButton.TabIndex = 8;
+            this.generateButton.Text = "Сгенерировать";
+            this.generateButton.UseVisualStyleBackColor = true;
+            this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
+            // 
+            // directionInput
+            // 
+            this.directionInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.directionInput.FormattingEnabled = true;
+            this.directionInput.Items.AddRange(new object[] {
+            "Светлее",
+            "Темнее"});
+            this.directionInput.Location = new System.Drawing.Point(912, 71);
+            this.directionInput.Name = "directionInput";
+            this.directionInput.Size = new System.Drawing.Size(121, 32);
+            this.directionInput.TabIndex = 7;
+            // 
+            // directionLabel
+            // 
+            this.directionLabel.AutoSize = true;
+            this.directionLabel.Location = new System.Drawing.Point(896, 32);
+            this.directionLabel.Name = "directionLabel";
+            this.directionLabel.Size = new System.Drawing.Size(137, 24);
+            this.directionLabel.TabIndex = 6;
+            this.directionLabel.Text = "Направление:";
+            // 
+            // numShadesInput
+            // 
+            this.numShadesInput.Location = new System.Drawing.Point(743, 29);
+            this.numShadesInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numShadesInput.Name = "numShadesInput";
+            this.numShadesInput.Size = new System.Drawing.Size(120, 32);
+            this.numShadesInput.TabIndex = 5;
+            this.numShadesInput.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // numShadesLabel
+            // 
+            this.numShadesLabel.AutoSize = true;
+            this.numShadesLabel.Location = new System.Drawing.Point(523, 32);
+            this.numShadesLabel.Name = "numShadesLabel";
+            this.numShadesLabel.Size = new System.Drawing.Size(214, 24);
+            this.numShadesLabel.TabIndex = 4;
+            this.numShadesLabel.Text = "Количество оттенков:";
+            // 
+            // hexDisplayLabel
+            // 
+            this.hexDisplayLabel.AutoSize = true;
+            this.hexDisplayLabel.Location = new System.Drawing.Point(409, 32);
+            this.hexDisplayLabel.Name = "hexDisplayLabel";
+            this.hexDisplayLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.hexDisplayLabel.Size = new System.Drawing.Size(98, 24);
+            this.hexDisplayLabel.TabIndex = 3;
+            this.hexDisplayLabel.Text = "#0000FF";
+            // 
+            // colorPreviewPanel
+            // 
+            this.colorPreviewPanel.BackColor = System.Drawing.Color.Blue;
+            this.colorPreviewPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.colorPreviewPanel.Location = new System.Drawing.Point(340, 20);
+            this.colorPreviewPanel.Name = "colorPreviewPanel";
+            this.colorPreviewPanel.Size = new System.Drawing.Size(50, 50);
+            this.colorPreviewPanel.TabIndex = 2;
+            // 
+            // hexInput
+            // 
+            this.hexInput.Location = new System.Drawing.Point(224, 29);
+            this.hexInput.Name = "hexInput";
+            this.hexInput.Size = new System.Drawing.Size(100, 32);
+            this.hexInput.TabIndex = 1;
+            this.hexInput.Text = "#0000FF";
+            this.hexInput.TextChanged += new System.EventHandler(this.hexInput_TextChanged);
+            // 
+            // hexLabel
+            // 
+            this.hexLabel.AutoSize = true;
+            this.hexLabel.Location = new System.Drawing.Point(6, 35);
+            this.hexLabel.Name = "hexLabel";
+            this.hexLabel.Size = new System.Drawing.Size(212, 24);
+            this.hexLabel.TabIndex = 0;
+            this.hexLabel.Text = "HEX цвет (#RRGGBB):";
             // 
             // HeaderPanel
             // 
@@ -329,6 +448,15 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // panelContainer
+            // 
+            this.panelContainer.AutoScroll = true;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelContainer.Location = new System.Drawing.Point(3, 111);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1074, 390);
+            this.panelContainer.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -345,6 +473,9 @@
             this.TriadPaletteView3.ResumeLayout(false);
             this.TriadPaletteView2.ResumeLayout(false);
             this.TriadPaletteView1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numShadesInput)).EndInit();
             this.HeaderPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -375,6 +506,17 @@
         private System.Windows.Forms.Label TriadDarkOnMid;
         private System.Windows.Forms.Label TriadDarkOnLight;
         private System.Windows.Forms.Label TriadMidOnLight;
+        private System.Windows.Forms.Label hexLabel;
+        private System.Windows.Forms.TextBox hexInput;
+        private System.Windows.Forms.Label hexDisplayLabel;
+        private System.Windows.Forms.Panel colorPreviewPanel;
+        private System.Windows.Forms.Label numShadesLabel;
+        private System.Windows.Forms.NumericUpDown numShadesInput;
+        private System.Windows.Forms.Label directionLabel;
+        private System.Windows.Forms.ComboBox directionInput;
+        private System.Windows.Forms.Button generateButton;
+        private System.Windows.Forms.ToolTip tooltip;
+        private System.Windows.Forms.FlowLayoutPanel panelContainer;
     }
 }
 

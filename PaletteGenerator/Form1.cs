@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using PaletteGenerator.Core.Palettes;
 using PaletteGenerator.Core.Colors;
+using System.Drawing;
+using WinFormsApp1;
 
 namespace PaletteGenerator
 {
@@ -53,6 +55,52 @@ namespace PaletteGenerator
 
             TriadDarkOnLight.ForeColor = ClassConverter.FullColorToColor(triad[2]);
             TriadDarkOnMid.ForeColor = ClassConverter.FullColorToColor(triad[2]);
-        }   
+        }
+
+        private void hexInput_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string hex = Modifiers.ParseHexColor(hexInput.Text);
+
+                colorPreviewPanel.BackColor = ColorTranslator.FromHtml(hex);
+
+                hexDisplayLabel.Text = hex;
+            }
+            catch
+            {
+                colorPreviewPanel.BackColor = Color.LightGray;
+                hexDisplayLabel.Text = "Неверный HEX";
+            }
+        }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string hex = Modifiers.ParseHexColor(hexInput.Text);
+                Color baseColor = ColorTranslator.FromHtml(hex);
+
+                int numShades = (int)numShadesInput.Value;
+                bool lighten = directionInput.SelectedIndex == 0;
+
+                panelContainer.Controls.Clear();
+
+                Modifiers.GenerateShades(baseColor, numShades, lighten, (colorPanel, shadeHex) =>
+                {
+                    tooltip.SetToolTip(colorPanel, shadeHex);
+
+                    colorPanel.MouseClick += (s, ev) => Modifiers.CopyToClipboard(shadeHex);
+                    colorPanel.MouseEnter += (s, ev) => tooltip.Show(shadeHex, colorPanel, colorPanel.Width / 2, colorPanel.Height / 2);
+                    colorPanel.MouseLeave += (s, ev) => tooltip.Hide(colorPanel);
+
+                    panelContainer.Controls.Add(colorPanel);
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

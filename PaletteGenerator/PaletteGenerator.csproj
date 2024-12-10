@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\Generators\ContrastTriadGenerator.cs" />
+    <Compile Include="Algorithms\Modifiers\Modifiers.cs" />
     <Compile Include="Algorithms\Temp.cs" />
     <Compile Include="Core\Colors\ClassConverter.cs" />
     <Compile Include="Core\Colors\FullColor.cs" />
@@ -131,8 +132,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Algorithms\Modifiers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

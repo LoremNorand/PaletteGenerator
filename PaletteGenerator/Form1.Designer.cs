@@ -49,6 +49,7 @@
             this.TriadPalettePanelDark = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panelContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.generateButton = new System.Windows.Forms.Button();
             this.directionInput = new System.Windows.Forms.ComboBox();
             this.directionLabel = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.tooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.panelContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.MainTabControl.SuspendLayout();
             this.GenerationTab.SuspendLayout();
             this.TriadPaletteView3.SuspendLayout();
@@ -321,6 +321,15 @@
             this.tabPage2.Text = "Генератор оттенков";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // panelContainer
+            // 
+            this.panelContainer.AutoScroll = true;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelContainer.Location = new System.Drawing.Point(3, 111);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1074, 390);
+            this.panelContainer.TabIndex = 9;
+            // 
             // generateButton
             // 
             this.generateButton.AutoSize = true;
@@ -339,7 +348,7 @@
             this.directionInput.Items.AddRange(new object[] {
             "Светлее",
             "Темнее"});
-            this.directionInput.Location = new System.Drawing.Point(912, 71);
+            this.directionInput.Location = new System.Drawing.Point(900, 73);
             this.directionInput.Name = "directionInput";
             this.directionInput.Size = new System.Drawing.Size(121, 32);
             this.directionInput.TabIndex = 7;
@@ -355,7 +364,7 @@
             // 
             // numShadesInput
             // 
-            this.numShadesInput.Location = new System.Drawing.Point(743, 29);
+            this.numShadesInput.Location = new System.Drawing.Point(666, 71);
             this.numShadesInput.Minimum = new decimal(new int[] {
             1,
             0,
@@ -373,7 +382,7 @@
             // numShadesLabel
             // 
             this.numShadesLabel.AutoSize = true;
-            this.numShadesLabel.Location = new System.Drawing.Point(523, 32);
+            this.numShadesLabel.Location = new System.Drawing.Point(662, 32);
             this.numShadesLabel.Name = "numShadesLabel";
             this.numShadesLabel.Size = new System.Drawing.Size(214, 24);
             this.numShadesLabel.TabIndex = 4;
@@ -447,15 +456,6 @@
             this.CloseButton.Text = "x";
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.AutoScroll = true;
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelContainer.Location = new System.Drawing.Point(3, 111);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1074, 390);
-            this.panelContainer.TabIndex = 9;
             // 
             // Form1
             // 

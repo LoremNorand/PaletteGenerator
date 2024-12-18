@@ -51,6 +51,9 @@
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.MainTabControl.SuspendLayout();
             this.GenerationTab.SuspendLayout();
             this.TriadPaletteView3.SuspendLayout();
@@ -73,6 +76,9 @@
             // GenerationTab
             // 
             this.GenerationTab.AutoScroll = true;
+            this.GenerationTab.Controls.Add(this.button1);
+            this.GenerationTab.Controls.Add(this.comboBox1);
+            this.GenerationTab.Controls.Add(this.panel1);
             this.GenerationTab.Controls.Add(this.TriadPaletteView3);
             this.GenerationTab.Controls.Add(this.TriadPaletteView2);
             this.GenerationTab.Controls.Add(this.TriadPaletteView1);
@@ -329,6 +335,31 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(25, 343);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(345, 100);
+            this.panel1.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(25, 279);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 27);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(25, 313);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -375,6 +406,9 @@
         private System.Windows.Forms.Label TriadDarkOnMid;
         private System.Windows.Forms.Label TriadDarkOnLight;
         private System.Windows.Forms.Label TriadMidOnLight;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

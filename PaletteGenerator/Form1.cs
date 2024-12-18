@@ -15,7 +15,7 @@ namespace PaletteGenerator
 
         private void Form_MouseDown(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 this.Capture = false; // Отключаем захват мыши
                 Message m = Message.Create(this.Handle, 0xA1, new IntPtr(0x2), IntPtr.Zero); // Симулируем перетаскивание
@@ -53,6 +53,11 @@ namespace PaletteGenerator
 
             TriadDarkOnLight.ForeColor = ClassConverter.FullColorToColor(triad[2]);
             TriadDarkOnMid.ForeColor = ClassConverter.FullColorToColor(triad[2]);
-        }   
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

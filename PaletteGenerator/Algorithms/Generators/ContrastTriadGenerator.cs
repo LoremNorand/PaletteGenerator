@@ -36,7 +36,7 @@ namespace PaletteGenerator.Algorithms.Generators
             int S = 0;
             int B = 0;
 
-            while(Range.Out(0.00001, 0.005, dark.Luminance))
+            while (Range.Out(0.00001, 0.005, dark.Luminance))
             {
                 H = random.Next(0, 361);
                 S = random.Next(85, 101);
@@ -54,7 +54,7 @@ namespace PaletteGenerator.Algorithms.Generators
             int B = 0;
 
             int tryCounter = 0;
-            while(Range.Out(4.5, 4.7, Luminance.Contrast(mid, dark)))
+            while (Range.Out(4.5, 4.7, Luminance.Contrast(mid, dark)))
             {
                 H = random.Next(0, 360);
                 S = random.Next(20, 100);
@@ -64,7 +64,7 @@ namespace PaletteGenerator.Algorithms.Generators
 
                 tryCounter++;
 
-                if(tryCounter >= MaxAttempts)
+                if (tryCounter >= MaxAttempts)
                 {
                     Dark();
                     tryCounter = 0;
@@ -80,7 +80,7 @@ namespace PaletteGenerator.Algorithms.Generators
             int B = 0;
 
             int tryCounter = 0;
-            while(Range.Out(4.5, 5.0, Luminance.Contrast(light, mid)))
+            while (Range.Out(4.5, 5.0, Luminance.Contrast(light, mid)))
             {
                 H = random.Next(0, 360);
                 S = random.Next(0, 50);
@@ -90,7 +90,7 @@ namespace PaletteGenerator.Algorithms.Generators
 
                 tryCounter++;
 
-                if(tryCounter >= MaxAttempts)
+                if (tryCounter >= MaxAttempts)
                 {
                     Mid();
                     tryCounter = 0;
